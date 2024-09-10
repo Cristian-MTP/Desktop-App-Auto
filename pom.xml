@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.cucumber</groupId>
+  <artifactId>Test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>cucumber-archetype</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.release>17</maven.compiler.release>
+      <skipTests>false</skipTests>
+      <maven.compiler.source>21</maven.compiler.source>
+      <maven.compiler.target>21</maven.compiler.target>
+      <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+      <maven.jar.version>3.1.0</maven.jar.version>
+      <maven.surefire.version>3.0.0-M4</maven.surefire.version>
+      <apache.poi.version>5.2.2</apache.poi.version>
+      <commos.io.version>2.11.0</commos.io.version>
+      <selenium.version>4.11.0</selenium.version>
+      <junit.version>5.8.1</junit.version>
+      <webdrivermanager.version>4.0.0</webdrivermanager.version>
+      <appium.version>8.5.0</appium.version>
+      <db2.jcc.version>11.5.9.0</db2.jcc.version>
+      <db2.license.version>4.12.55</db2.license.version>
+      <json.version>20160810</json.version>
+      <cucumber-java.version>7.2.3</cucumber-java.version>
+      <cucumber-junit.version>7.2.3</cucumber-junit.version>
+      <cucumber.testng.version>7.2.3</cucumber.testng.version>
+      <reportium-sdk.version>2.3.1</reportium-sdk.version>
+      <reportium-sdk.version>2.3.1</reportium-sdk.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+<!--  <dependencyManagement>-->
+<!--    <dependencies>-->
+<!--      <dependency>-->
+<!--        <groupId>org.junit</groupId>-->
+<!--        <artifactId>junit-bom</artifactId>-->
+<!--        <version>5.11.0</version>-->
+<!--        <type>pom</type>-->
+<!--        <scope>import</scope>-->
+<!--      </dependency>-->
+<!--      <dependency>-->
+<!--        <groupId>junit</groupId>-->
+<!--        <artifactId>junit</artifactId>-->
+<!--        <version>4.13</version>-->
+<!--      </dependency>-->
+<!--    </dependencies>-->
+<!--  </dependencyManagement>-->
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>8.5.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>${apache.poi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>7.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-jvm</artifactId>
+      <version>7.2.3</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>7.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>4.24.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <version>5.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite</artifactId>
+      <version>1.8.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/test/java</directory>
+      </resource>
+    </resources>
+
+      <plugins>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>3.0.0-M1</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0-M4</version>
+          <configuration>
+            <includes>
+              <include>**/*Run*.java</include>
+            </includes>
+            <testFailureIgnore>true</testFailureIgnore>
+            <properties>
+              <configurationParameters>
+                cucumber.publish.enabled=true
+              </configurationParameters>
+            </properties>
+          </configuration>
+        </plugin>
+      </plugins>
+
+  </build>
+</project>
